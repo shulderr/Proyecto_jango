@@ -1,0 +1,59 @@
+<html>
+<head>
+    <title>SP-indumentaryⓇ</title>
+    {% load static %}
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="{% static 'img/logo.PNG' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inicio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/cards.css' %}">
+    <meta name="viewport" content="width=device-width, user-scalabe=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
+    </head>
+    <body>
+             <div id="particles-js"></div>
+  <header>
+              <nav class= "navegacion">
+                 <ul class= "menu">
+                     <li><a href="">inicio</a></li>
+                      <li><a href="nosotros.html">nosotros</a></li>
+                      <li><a href="formulario.html">Acceder</a>
+                     <ul class= "submenu">
+                          <li><a href="formulario.html">Ingresar</a></li>
+                          <li><a href="formulario.html">Registrarse</a></li>
+                          </ul>
+                     </li>
+                     <li><a href="index.html">Ubicacion</a></li>
+                     <li><a href="#">comprar</a></li>
+                  </ul>
+              </nav>
+            </header>
+        <img src="{% static 'img/logo.PNG' %}" class="logol">
+        <br>
+        <script src="{% static 'js/particles.min.js' %}"></script>
+        <script src="{% static 'js/app.js' %}"></script>
+        <h1 class="title">Redes sociales</h1>
+
+        <div class="container">
+
+           <div class="card">
+            <img src="{% static 'img/eti1.png' %}">
+              <h4>Facebook</h4>
+              <p>conoce en Facebook</p>
+              <a href="#">¡Click Aqui!</a>
+            </div>
+
+            <div class="card">
+            <img src="{% static 'img/eti2.png' %}">
+              <h4>Tik Tok</h4>
+                    <p>conoce en Tik Tok</p>
+              <a href="#">¡Click Aqui!</a>
+            </div>
+
+            <div class="card">
+            <img src="{% static 'img/eti3.png' %}">
+              <h4>Instagram</h4>
+                    <p>conoce en Instagram</p>
+              <a href="#">¡Click Aqui!</a>
+            </div>
+        </div>
+    </body>
+</html>
