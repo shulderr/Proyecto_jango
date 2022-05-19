@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, user-scalabe=no, initial-scale=1.0, maximun-scale=1.0, minimun-scale=1.0">
     </head>
     <body>
-             <div id="particles-js"></div>
   <header>
               <nav class= "navegacion">
                  <ul class= "menu">
@@ -24,31 +23,29 @@
             </header>
         <img src="{% static 'img/logo.PNG' %}" class="logol">
         <br>
-        <script src="{% static 'js/particles.min.js' %}"></script>
-        <script src="{% static 'js/app.js' %}"></script>
         <h1 class="title">Redes sociales</h1>
 
         <div class="container">
 
            <div class="card">
-            <img src="{% static 'img/eti1.png' %}">
-              <h4>Facebook</h4>
-              <p>conoce en Facebook</p>
-              <a href="#">¡Click Aqui!</a>
+            <img src="{% static 'img/eti1.jpg' %}">
+              <h4>CAMISETA VISITANTE REAL MADRID 21/22</h4>
+              <p>$219.990</p>
+              <a href="{% url 'compra' %}">Comprar</a>
             </div>
 
             <div class="card">
-            <img src="{% static 'img/eti2.png' %}">
-              <h4>Tik Tok</h4>
-                    <p>conoce en Tik Tok</p>
-              <a href="#">¡Click Aqui!</a>
+            <img src="{% static 'img/eti2.jpg' %}">
+              <h4>CAMISETA VISITANTE JUVENTUS 21/22</h4>
+                    <p>$153.993</p>
+              <a href="{% url 'compra' %}">Comprar</a>
             </div>
 
             <div class="card">
-            <img src="{% static 'img/eti3.png' %}">
-              <h4>Instagram</h4>
-                    <p>conoce en Instagram</p>
-              <a href="#">¡Click Aqui!</a>
+            <img src="{% static 'img/eti3.jpg' %}">
+              <h4>CAMISETA LOCAL FC BAYERN 21/22</h4>
+                    <p>$219.990</p>
+              <a href="{% url 'compra' %}">Comprar</a>
             </div>
         </div>
     </body>

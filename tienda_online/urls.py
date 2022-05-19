@@ -18,11 +18,12 @@ from django.urls import path, include
 from inventario.views import *
 from contacto.views import mensaje_contacto
 from inicio.views import inicio
+from compra.views import compra
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', inicio),
+    path('', inicio, name='home'),
     path('busqueda_productos/', vista_busqueda_productos),
     path('obtener_producto/', obtener_producto),
     path('agregar_producto/', agregar_producto, name='add-prods'),
@@ -32,4 +33,5 @@ urlpatterns = [
     path('contacto/', mensaje_contacto),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('compra/', compra, name='compra'),
 ]
