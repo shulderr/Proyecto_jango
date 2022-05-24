@@ -8,6 +8,7 @@ class Productos(models.Model):
     category = models.CharField(max_length=30)
     cost = models.IntegerField(default=0)
     cantidad_stock = models.IntegerField(default=0)
+    img = models.ImageField(upload_to='inventario')
     description = models.TextField()
 
 

@@ -17,7 +17,7 @@ def obtener_producto(request):
 def mostrar_productos(request):
 
     productos = Productos.objects.all()
-    return render(request,'show_products.html',{'productos':productos})
+    return render(request,'show_products.html', {'productos':productos})
 
 def agregar_producto(request):
 
