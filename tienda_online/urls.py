@@ -21,7 +21,7 @@ from django.urls import path, include
 from inventario.views import *
 from contacto.views import mensaje_contacto
 from inicio.views import inicio
-from compra.views import compra
+from compra.views import compra, venta
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -37,6 +37,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('compra/<int:pk>', compra, name='compra'),
+    path('venta/', venta, name='venta')
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

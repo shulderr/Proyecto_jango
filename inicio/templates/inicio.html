@@ -13,10 +13,10 @@
               <nav class= "navegacion">
                  <ul class= "menu">
                      <li><a href="">inicio</a></li>
-                      <li><a href="nosotros.html">nosotros</a></li>
                       <li><a href="login">Acceder</a></li>
                      {% if user.is_authenticated %}
                         <li><a href="{% url 'logout' %}">Cerrar Sesion</a></li>
+                        <li><a href="#">Usuario: {{ user.username }}</a></li>
                       {% endif %}
                   </ul>
               </nav>
