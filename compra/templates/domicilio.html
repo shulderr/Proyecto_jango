@@ -38,7 +38,7 @@
                     <div class="titulo">
                         Datos De Entrega
                     </div>
-                    <form id="loginform" method="post" action="/venta/"> {% csrf_token%}
+                    <form id="loginform" method="post" action="venta/"> {% csrf_token %}
                         <input type="text" name="nombre" placeholder="Nombre y apellidos completos" required>
                         <br>
                         <input  list="documento" name="documento" placeholder="Tipo de Documento" required>
@@ -137,9 +137,9 @@
                             <font color="white">Detalles:</font>
                         </div>
                         <input type="text" name="producto" value="{{producto.description}}" readonly>
-                        <font color="white">Total: </font>
-                        <input type="text" name="precio" value="${{producto.cost}}" readonly>
-                        <button type="submit" onclick="alert ('La compra ha sido efectuada')" title="compra" name="compra">Comprar</button>
+                        <font color="white">Total $COP: </font>
+                        <input type="text" name="precio" value="{{producto.cost}}" readonly>
+                        <button type="submit" onclick="alert ('El Pedido ha sido efectuada')" title="compra" name="compra">Comprar</button>
                     </form>
                     
                 </div>

@@ -1,24 +1,24 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render, redirect
 from inventario.models import Productos
 from compra.models import pedidos
 from django.template.loader import get_template
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 import time
-from django.contrib.auth.decorators import login_required
+
 
 # Create your views here.
 
 
 def Enviar_correo(email, nombre, producto, precio, ciudad):
-
     fecha = str(time.strftime("%d/%m/%Y"))
-    context = {'email':email, 'nombre':nombre, 'producto':producto, 'precio':precio, 'ciudad':ciudad, 'fecha':fecha}
+    context = {'email': email, 'nombre': nombre, 'producto': producto, 'precio': precio, 'ciudad': ciudad,
+               'fecha': fecha}
     template = get_template('correo.html')
     content = template.render(context)
 
     mail = EmailMultiAlternatives(
-        'Un Correo De Prueba',
+        'Pedido en Sp-indumentary',
         'Geralt',
         settings.EMAIL_HOST_USER,
         [email]
@@ -32,10 +32,10 @@ def Enviar_correo(email, nombre, producto, precio, ciudad):
 
 
 def Enviar_correo_admin(nombre, producto, precio, ciudad):
-
     email = 'shulder2@gmail.com'
     fecha = str(time.strftime("%d/%m/%Y"))
-    context = {'email':email, 'nombre':nombre, 'producto':producto, 'precio':precio, 'ciudad':ciudad, 'fecha':fecha}
+    context = {'email': email, 'nombre': nombre, 'producto': producto, 'precio': precio, 'ciudad': ciudad,
+               'fecha': fecha}
     template = get_template('correo_admin.html')
     content = template.render(context)
 
@@ -53,16 +53,17 @@ def Enviar_correo_admin(nombre, producto, precio, ciudad):
         print("Error al Enviar el correo")
 
 
-def compra(request,pk):
-
+def compra(request, pk):
+    var = 1
     producto = Productos.objects.get(id=pk)
+    producto.cantidad_stock -= var
+    producto.save()
     return render(request, "domicilio.html", {'producto': producto})
 
 
 def venta(request):
 
     if request.method == "POST":
-
         nombre = request.POST["nombre"]
         documento = request.POST["cedula"]
         correo = request.POST["correo"]
@@ -76,7 +77,7 @@ def venta(request):
         Enviar_correo_admin(nombre, producto, precio, ciudad)
         data = pedidos(nombre=nombre, documento=documento, correo=correo, direccion=direccion,
                        departamento=departamento,
-                       ciudad=ciudad, telefono=telefono)
+                       ciudad=ciudad, telefono=telefono, precio=precio, producto=producto)
         data.save()
 
         return redirect('home')
